@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block edit %}
+  
+
+    <!-- <form method="POST">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Update Details</h3>
+            </p>
+        </div>
+        <div>
+            <p>Product Name:</p>
+            <div>
+                <input type="text" name="name" value="{{data.name}}" />
+            </div>
+        </div>
+        <div>
+            <p>Product Description :</p>
+            <div>
+                <input type="text" name="des" value="{{data.description}}" />
+            </div>
+        </div>
+        <div>
+            <p>Price: </p>
+            <div>
+                <input type="number" name="price" value="{{data.price}}" />
+            </div>
+        </div>
+        <div>
+            <br>
+            <input type="submit" value= "Update">
+        </div>
+    </form> -->
+
+    <form method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value = "submit">
+    </form>
+{% endblock edit %}

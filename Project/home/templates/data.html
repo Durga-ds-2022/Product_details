@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block data %}
+    
+
+<div>
+    <p>Welcome TO {{ user.username }}</p>
+    <hr>
+    <button><a href="{% url 'logout' %}">logout</a></button>
+
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.price}}</td>
+                <td>
+                    <a href="/update/{{ i.id }}">Edit</a>
+                    <a href="/delete/{{i.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button><a href="{% url 'create-order' %}">Create Order</a></button>
+    {% endblock data %}
